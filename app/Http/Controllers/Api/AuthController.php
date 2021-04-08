@@ -45,7 +45,6 @@ class AuthController extends Controller
         $validator = Validator::make($request->all(),[
             'email' => 'required|email',
             'password' => 'required',
-            'is_admin' => 'required',
         ]);
 
         if($validator->fails()){
@@ -66,7 +65,8 @@ class AuthController extends Controller
         $token = $user->createToken('authToken')->plainTextToken;
 
         return response()->json([
-            'token' => $token
+            'token' => $token,
+            'user' => $user
         ],200);
     }
 
