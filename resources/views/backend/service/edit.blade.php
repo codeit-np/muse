@@ -20,6 +20,9 @@
                                 <label for="starting_price">Starting Price <span class="text-danger">*</span></label>
                                 <input id="starting_price" class="form-control" type="text" name="starting_price" value="{{ $service->starting_price }}">
                             </div>
+                            @error('starting_price')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
 
                             <div class="form-group">
                                 <label for="description">Description (Optional)</label>

@@ -20,6 +20,9 @@
                                 <label for="price">Price <span class="text-danger">*</span></label>
                                 <input id="price" class="form-control" type="text" name="price" value="{{ $product->price }}">
                             </div>
+                            @error('price')
+                              <div class="text-danger">  {{ $message }}</div>
+                            @enderror
 
                             <div class="form-group">
                                 <label for="company">Company <span class="text-danger">*</span></label>

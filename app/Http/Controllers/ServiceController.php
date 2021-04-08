@@ -38,7 +38,7 @@ class ServiceController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
-            'starting_price' => 'required',
+            'starting_price' => 'required | numeric',
         ]);
 
         $service =  new Service();
@@ -94,7 +94,7 @@ class ServiceController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
-            'starting_price' => 'required',
+            'starting_price' => 'required|numeric',
         ]);
 
         $service =  Service::find($id);
