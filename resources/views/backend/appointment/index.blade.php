@@ -6,29 +6,30 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="/services/create" class="btn btn-primary btn-sm"><i class="nav-icon fas fa-plus-square"></i> Create</a>
+                        Appointments
                     </div>
                     <div class="card-body">
                         <table class="table table-bordered table-striped table-sm" id="datatable">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Service Name</th>
-                                    <th>Starting Price</th>
-                                    <th>Category</th>
-                                    <th>Action</th>
+                                    <th>Date</th>
+                                    <th>Services</th>
+                                    <th>Customer</th>
+                                    <th>Mobile</th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                @foreach ($services as $service)
+                                @foreach ($appointments as $appointment)
                                     <tr>
-                                        <td>{{ $service->id }}</td>
-                                        <td>{{ $service->name }}</td>
-                                        <td>{{ $service->starting_price }}</td>
-                                        <td>{{ $service->category->name }}</td>
+                                        <td>{{ $appointment->id }}</td>
+                                        <td>{{ $appointment->name }}</td>
+                                        <td>{{ $appointment->service->name }}</td>
+                                        <td>{{ $appointment->user->name }}</td>
+                                        <td>{{ $appointment->user->mobile }}</td>
                                         <td>
-                                            <a href="/services/{{ $service->id }}/edit">Edit</a>
+                                            <a href="/appointments/{{ $appointment->id }}/edit">Edit</a>
                                         </td>
                                     </tr>
                                 @endforeach

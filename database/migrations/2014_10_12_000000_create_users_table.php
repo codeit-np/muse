@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->integer('is_admin')->default(1);   //NOte 0 Client | 1 Admin  | 2 Staff
             $table->double('lat')->nullable();
             $table->double('lng')->nullable();
+            $table->string('mobile')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

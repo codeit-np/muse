@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
@@ -26,3 +28,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Admin
 Route::resource('services',ServiceController::class);
 Route::resource('products',ProductController::class);
+Route::resource('categories',CategoryController::class);
+Route::resource('appointments',AppointmentController::class);

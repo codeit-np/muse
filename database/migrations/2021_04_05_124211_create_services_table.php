@@ -19,6 +19,7 @@ class CreateServicesTable extends Migration
             $table->integer('starting_price');
             $table->string('image');
             $table->text('description')->nullable();
+            $table->foreignId('category_id');
             $table->timestamps();
         });
     }

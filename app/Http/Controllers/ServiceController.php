@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,8 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('backend.service.create');
+        $categories = Category::all();
+        return view('backend.service.create',compact('categories'));
     }
 
     /**
@@ -54,6 +56,7 @@ class ServiceController extends Controller
         }
 
         $service->description = $request->description;
+        $service->category_id = $request->category_id;
         $service->save();
 
         $request->session()->flash('message','Record Save');
@@ -80,7 +83,8 @@ class ServiceController extends Controller
     public function edit($id)
     {
         $service = Service::find($id);
-        return view('backend.service.edit',compact('service'));
+        $categories = Category::all();
+        return view('backend.service.edit',compact('service','categories'));
     }
 
     /**
@@ -107,6 +111,7 @@ class ServiceController extends Controller
             $service->image = 'service/' . $newName;
         }
         $service->description = $request->description;
+        $service->category_id = $request->category_id;
         $service->update();
 
         $request->session()->flash('message','Record Updated');

@@ -17,6 +17,7 @@
                                     <th>Product Name</th>
                                     <th>Price</th>
                                     <th>Company</th>
+                                    <th>Category</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -46,6 +47,7 @@
                                         <td>{{ $product->name }}</td>
                                         <td>{{ $product->price }}</td>
                                         <td>{{ $product->company }}</td>
+                                        <td>{{ $product->category->name }}</td>
                                         <td>
                                             <a href="/products/{{ $product->id }}/edit">Edit</a>
                                         </td>

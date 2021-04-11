@@ -183,6 +183,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
 
           <li class="nav-item">
+            <a href="/categories" class="nav-link">
+              <i class="nav-icon fas fa-tasks"></i>
+              <p>
+                Category
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="/services" class="nav-link">
               <i class="nav-icon fas fa-cog"></i>
               <p>
@@ -201,11 +210,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
 
           <li class="nav-item">
-            <a href="/appointment" class="nav-link">
+            <a href="/appointments" class="nav-link">
               <i class="nav-icon fas fa-calendar-check"></i>
               <p>
                 Appointment
               </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+                <i class="nav-icon fas fa-sign-out-alt"></i> {{ __('Logout') }}
             </a>
           </li>
         </ul>

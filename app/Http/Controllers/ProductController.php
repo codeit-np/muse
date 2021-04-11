@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('backend.product.create');
+        $categories = Category::all();
+        return view('backend.product.create',compact('categories'));
     }
 
     /**
@@ -56,6 +58,8 @@ class ProductController extends Controller
         }
 
         $product->description = $request->description;
+        $product->category_id = $request->category_id;
+
         $product->save();
 
         $request->session()->flash('message','Record Save');
@@ -82,7 +86,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        return view('backend.product.edit',compact('product'));
+        $categories = Category::all();
+        return view('backend.product.edit',compact('product','categories'));
     }
 
     /**
@@ -112,6 +117,8 @@ class ProductController extends Controller
         }
 
         $product->description = $request->description;
+        $product->category_id = $request->category_id;
+        
         $product->update();
 
         $request->session()->flash('message','Record Updated    ');

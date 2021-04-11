@@ -18,6 +18,7 @@ class AuthController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required',
+            'mobile' => 'required',
             'is_admin' => 'required',
         ]);
 
@@ -32,6 +33,7 @@ class AuthController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->is_admin = $request->is_admin;
+        $user->mobile = $request->mobile;
         $user->save();
 
         return response()->json([
