@@ -14,6 +14,8 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Appoint With</th>
                                     <th>Services</th>
                                     <th>Customer</th>
                                     <th>Mobile</th>
@@ -27,6 +29,8 @@
                                     <tr>
                                         <td>{{ $appointment->id }}</td>
                                         <td>{{ $appointment->date }}</td>
+                                        <td>{{ $appointment->time }}</td>
+                                        <td>{{ $appointment->employee }}</td>
                                         <td>{{ $appointment->service }}</td>
                                         <td>{{ $appointment->user->name }}</td>
                                         <td>{{ $appointment->user->mobile }}</td>

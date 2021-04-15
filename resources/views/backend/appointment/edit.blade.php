@@ -23,7 +23,7 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="date">Time <span class="text-danger">*</span></label>
-                                        <input id="date" class="form-control" type="time" name="time" required>
+                                        <input id="date" class="form-control" type="time" name="time" value="{{ $appointment->time }}" required>
                                     </div>
                                 </div>
                             </div>
@@ -39,7 +39,7 @@
 
                             <div class="form-group">
                                 <label for="employee">Assign Employee <span class="text-danger">*</span></label>
-                                <input id="employee" class="form-control" type="text" name="employee" required>
+                                <input id="employee" class="form-control" type="text" name="employee" value="{{ $appointment->employee }}" required>
                             </div>
 
                             <div class="form-group">
