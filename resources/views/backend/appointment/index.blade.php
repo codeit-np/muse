@@ -17,6 +17,8 @@
                                     <th>Services</th>
                                     <th>Customer</th>
                                     <th>Mobile</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
 
@@ -24,10 +26,11 @@
                                 @foreach ($appointments as $appointment)
                                     <tr>
                                         <td>{{ $appointment->id }}</td>
-                                        <td>{{ $appointment->name }}</td>
-                                        <td>{{ $appointment->service->name }}</td>
+                                        <td>{{ $appointment->date }}</td>
+                                        <td>{{ $appointment->service }}</td>
                                         <td>{{ $appointment->user->name }}</td>
                                         <td>{{ $appointment->user->mobile }}</td>
+                                        <td>{{ $appointment->approved == 0 ? 'Pending' : 'Approved' }}</td>
                                         <td>
                                             <a href="/appointments/{{ $appointment->id }}/edit">Edit</a>
                                         </td>

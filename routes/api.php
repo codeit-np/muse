@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\Api\AppointmentController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\SearchController;
 use App\Http\Controllers\Api\ServiceController;
+use App\Http\Controllers\Api\Tickets;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,5 +32,7 @@ Route::group(['middleware' => 'auth:sanctum'],function(){
     Route::resource('services',ServiceController::class);
     Route::resource('products',ProductController::class);
     Route::post('search',[SearchController::class,'search']);
+    Route::apiResource('appoints',AppointmentController::class);
+    Route::post('tickets',[Tickets::class,'tickets']);
 });
 

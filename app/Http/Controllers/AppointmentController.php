@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -73,14 +74,17 @@ class AppointmentController extends Controller
     {
         $data = $request->validate([
             'time' => 'required',
-            'approved' => 'required',
+            'approve' => 'required',
+            'user_id' => 'required'
         ]);
 
         $appointment = Appointment::find($id);
         $appointment->date = $request->date;
         $appointment->user_id = $request->user_id;
-        $appointment->service_id = $request->service_id;
+        $appointment->service = $request->service;
         $appointment->time = $request->time;
+        $appointment->employee = $request->employee;
+        $appointment->approved = $request->approve;
         $appointment->update();
 
         $request->session()->flash('message','Record Updated');

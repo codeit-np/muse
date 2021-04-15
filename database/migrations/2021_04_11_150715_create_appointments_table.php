@@ -17,8 +17,9 @@ class CreateAppointmentsTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->date('date');
-            $table->foreignId('service_id');
+            $table->string('service');
             $table->string('time')->nullable();
+            $table->string('employee')->nullable();
             $table->boolean('approved')->default(false);
             $table->timestamps();
         });
