@@ -82,4 +82,12 @@ class AuthController extends Controller
             'message' => 'success'
         ],200);
     }
+
+    public function changepassword(Request $request)
+    {
+        $user = User::find($request->user()->id);
+        $user->password = Hash::make($request->password);
+        $user->update();
+        return response()->json(['message' => 'success']);
+    }
 }
